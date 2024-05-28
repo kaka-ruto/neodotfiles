@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-if test ! "$( command -v brew )"; then
+if test ! "$(command -v brew)"; then
     echo "Installing homebrew"
-    ruby -e "$( curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install )"
+    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 fi
 
 echo -e "\\n\\nInstalling homebrew packages..."
@@ -47,18 +47,19 @@ formulas=(
     ossp-uuid
     icu4c
     pkg-config
-    act # Run github actions locally
+    act      # Run github actions locally
     orbstack # Lighter, smaller and faster docker
+    gnu-sed  # sed
 )
 
 for formula in "${formulas[@]}"; do
-    formula_name=$( echo "$formula" | awk '{print $1}' )
-    if brew list "$formula_name" > /dev/null 2>&1; then
+    formula_name=$(echo "$formula" | awk '{print $1}')
+    if brew list "$formula_name" >/dev/null 2>&1; then
         echo "$formula_name already installed... skipping."
     else
         brew install "$formula"
         # arch_name="$(uname -m)"
- 
+
         # if [ "${arch_name}" = "x86_64" ]; then
         #     if [ "$(sysctl -in sysctl.proc_translated)" = "1" ]; then
         #         echo "Running on Rosetta 2"
@@ -66,7 +67,7 @@ for formula in "${formulas[@]}"; do
         #     else
         #         echo "Running on native Intel"
         #         brew install "$formula"
-        #     fi 
+        #     fi
         # elif [ "${arch_name}" = "arm64" ]; then
         #     echo "Running on ARM"
         #     arch -arm64 brew install "$formula"
@@ -87,7 +88,7 @@ echo "=============================="
 # pip3 install pynvim
 
 # Change the default shell to zsh
-zsh_path="$( command -v zsh )"
+zsh_path="$(command -v zsh)"
 if ! grep "$zsh_path" /etc/shells; then
     echo "adding $zsh_path to /etc/shells"
     echo "$zsh_path" | sudo tee -a /etc/shells
@@ -98,6 +99,6 @@ if [[ "$SHELL" != "$zsh_path" ]]; then
     echo "default shell changed to $zsh_path"
 
     # Source zshrc
-    echo "source $DOTFILES/zsh/zshenv.symlink" >> ~/.zshrc
-    echo "source $DOTFILES/zsh/zshrc.symlink" >> ~/.zshrc
+    echo "source $DOTFILES/zsh/zshenv.symlink" >>~/.zshrc
+    echo "source $DOTFILES/zsh/zshrc.symlink" >>~/.zshrc
 fi
