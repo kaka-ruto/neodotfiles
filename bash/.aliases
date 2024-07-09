@@ -209,6 +209,8 @@ alias mp='fc -e - mix\ test=iex\ -S\ mix\ test\ --trace mix\ test'
 alias k=kubectl
 
 # Kamal
+alias kwboot="kamal app boot"
+alias kwdetails="kamal app details"
 alias kaboot="kamal accessory boot"
 alias kareboot="kamal accessory reboot"
 alias ktreboot="kamal traefik reboot"
@@ -219,3 +221,5 @@ alias ktlogs="kamal traefik logs"
 alias kwlogs="kamal app logs -r web"
 alias kexecapp="kamal app exec -r web --reuse -i bash"
 alias kwrc="kamal app exec -r web --reuse -i 'bin/rails console'"
+alias kae="kamal app exec"
+alias kep="kamal env push"

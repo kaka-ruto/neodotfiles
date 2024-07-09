@@ -128,10 +128,6 @@ fi
 # add a config file for ripgrep
 export RIPGREP_CONFIG_PATH="$HOME/.rgrc"
 
-
-[ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-
 # alias git to hub
 if type hub > /dev/null 2>&1; then
     eval "$(hub alias -s)"
@@ -212,4 +208,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh
+# Set up fzf key bindings and fuzzy completion
+source <(fzf --zsh)
