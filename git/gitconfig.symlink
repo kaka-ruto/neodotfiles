@@ -1,12 +1,12 @@
 # gitconfig
 [user]
 	name = Kaka Ruto
-	email = kaka@collinsruto.com
+	email = kr@kakaruto.com
 [github]
 	user = kaka-ruto
 [init]
     templatedir = ~/Code/lua/neodotfiles/git/templates
-	defaultBranch = main
+	defaultBranch = master
 [alias]
     # list all aliases
     la = "!git config -l | grep alias | cut -c 7-"

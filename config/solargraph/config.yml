@@ -23,3 +23,7 @@ plugins:
     - solargraph-rails
     - solargraph-standardrb
 max_files: 5000
+overrides:
+    HashAlignment:
+        EnforcedHashRocketStyle: table
+        EnforcedColonStyle: separator
